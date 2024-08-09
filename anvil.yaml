@@ -1,7 +1,7 @@
 allow_embedding: false
-package_name: M3_App_1
-name: M3 App 1
-startup_form: Form1
+package_name: EdgeLPR
+name: EdgeLPR
+startup_form: null
 renamed: true
 runtime_options:
   version: 2
@@ -9,4 +9,9 @@ runtime_options:
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
 dependencies: []
-services: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: Base}
+metadata: {title: 실시간 LPR 번호 인식 장치, description: Edge 장치의 TPU 통한 차량 번호판 인식, logo_img: 'asset:LOGO2.png'}

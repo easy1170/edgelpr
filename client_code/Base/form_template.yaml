@@ -1,0 +1,62 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components: []
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: ai_link
+    properties: {}
+    type: Link
+    components:
+    - name: label_4
+      properties: {text: AI, bold: true, icon: 'fa:bullseye'}
+      type: Label
+      layout_properties: {grid_position: 'VGFUSE,YAAEYE'}
+  - name: device_link
+    properties: {}
+    type: Link
+    components:
+    - name: label_3
+      properties: {text: Devices, bold: true, font_size: 18, icon: 'fa:list'}
+      type: Label
+      layout_properties: {grid_position: 'RGKWZH,UHSRDX'}
+  - name: real_link
+    properties: {}
+    type: Link
+    components:
+    - name: label_2
+      properties: {text: Realtime, bold: true, font_size: 18, icon: 'fa:refresh'}
+      type: Label
+      layout_properties: {grid_position: 'BQAAQG,ARDUPN'}
+      data_bindings: []
+    event_bindings: {click: real_link_click}
+  - name: user_link
+    properties: {}
+    type: Link
+    components:
+    - name: label_1
+      properties: {text: Sign-in, icon: 'fa:user', font_size: 18, bold: true}
+      type: Label
+      layout_properties: {grid_position: 'DXXAKE,APEUBS'}
+- name: home_link
+  properties: {}
+  type: Link
+  layout_properties: {slot: title}
+  components:
+  - name: Title
+    properties: {icon: 'fa:home', text: EdgeLPR, font_size: 24, bold: true}
+    type: Label
+    layout_properties: {grid_position: 'WYNXSC,RWMXAV'}
+    data_bindings:
+    - {property: icon_align, code: 'self.item['''']', writeback: false}
+    - {property: font, code: '', writeback: false}
+  event_bindings: {click: home_link_click}
