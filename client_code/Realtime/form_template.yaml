@@ -24,4 +24,8 @@ components:
   properties: {source: _/theme/CCTV-B2-10_20240809152617_347735-1-0-cr.jpg}
   type: Image
   layout_properties: {grid_position: 'MABYYC,BCOHOM'}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'VOVGLX,AMQJTN', full_width_row: false}
 is_package: true
