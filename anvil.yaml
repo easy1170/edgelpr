@@ -32,4 +32,7 @@ db_schema:
     - name: updated_at
       admin_ui: {width: 200, order: 3}
       type: datetime
+    - name: feature_url
+      admin_ui: {width: 200, order: 4}
+      type: string
     title: dev_tbl
