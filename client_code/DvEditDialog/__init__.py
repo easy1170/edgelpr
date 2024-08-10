@@ -11,6 +11,7 @@ class DvEditDialog(DvEditDialogTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
   def __del__(self):
+    print("unload Dialog")
     print(self.item)
     
 

@@ -16,7 +16,7 @@ class Device(DeviceTemplate):
   #+--------------------------------------   
   def refresh_dvList(self):
     #self.dv_rplist_panel.items=app_tables.dev_tbl.search()
-    self.entries_panel.items = anvil.server.call('get_dv_list')
+    self.dv_rplist_panel.items = anvil.server.call('get_dv_list')
   #+--------------------------------------
   def add_dv_button_click(self, **event_args):
     """This method is called when the button is clicked"""
