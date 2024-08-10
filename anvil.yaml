@@ -15,3 +15,21 @@ services:
   server_config: {}
 startup: {type: form, module: Base}
 metadata: {title: 실시간 LPR 번호 인식 장치, description: Edge 장치의 TPU 통한 차량 번호판 인식, logo_img: 'asset:LOGO2.png'}
+db_schema:
+  dev_tbl:
+    client: full
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: ip
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: snap_url
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: updated_at
+      admin_ui: {width: 200, order: 3}
+      type: datetime
+    title: dev_tbl

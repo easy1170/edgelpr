@@ -1,0 +1,62 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: dv_update_button
+  properties: {text: '', role: outlined-button, icon: 'fa:edit', background: 'theme:Primary', foreground: 'theme:Primary Container'}
+  type: Button
+  layout_properties: {grid_position: 'XPVNAG,DIUYUH'}
+  event_bindings: {click: dv_update_button_click}
+- name: dv_del_button
+  properties: {text: '', icon: 'fa:trash', background: 'theme:Error', foreground: 'theme:Primary Container', role: outlined-button}
+  type: Button
+  layout_properties: {grid_position: 'XPVNAG,QPCJEW', row_background: 'theme:Primary'}
+  event_bindings: {click: dv_del_button_click}
+- name: grid_panel_1
+  properties: {}
+  type: GridPanel
+  layout_properties: {grid_position: 'TSFWDT,QIXVUH'}
+  components:
+  - name: label_1
+    properties:
+      text: |
+        CCTV NAME
+    type: Label
+    layout_properties: {row: IEDOCV, width_xs: 3, col_xs: 0}
+  - name: tb_name
+    properties: {enabled: true}
+    type: TextBox
+    layout_properties: {row: IEDOCV, width_xs: 3, col_xs: 3}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''name'']', writeback: false}
+  - name: label_2
+    properties: {text: IP Address}
+    type: Label
+    layout_properties: {row: IEDOCV, width_xs: 3, col_xs: 6}
+  - name: tb_ip
+    properties: {enabled: true}
+    type: TextBox
+    layout_properties: {row: IEDOCV, width_xs: 3, col_xs: 7}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''ip'']', writeback: false}
+  - name: label_3
+    properties:
+      text: |
+        snap_url
+    type: Label
+    layout_properties: {row: HBRXGZ, width_xs: 3, col_xs: 0}
+  - name: tb_snapurl
+    properties: {enabled: true}
+    type: TextBox
+    layout_properties: {row: HBRXGZ, width_xs: 3, col_xs: 3}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''snap_url'']', writeback: false}
+  - name: label_4
+    properties: {text: 갱신일}
+    type: Label
+    layout_properties: {row: HBRXGZ, width_xs: 3, col_xs: 6}
+  - name: tb_updatedat
+    properties: {enabled: false}
+    type: TextBox
+    layout_properties: {row: HBRXGZ, width_xs: 2, col_xs: 9}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''updated_at'']', writeback: false}

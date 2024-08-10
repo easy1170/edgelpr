@@ -28,7 +28,8 @@ components:
     - name: label_3
       properties: {text: Devices, bold: true, font_size: 18, icon: 'fa:list'}
       type: Label
-      layout_properties: {grid_position: 'RGKWZH,UHSRDX'}
+      layout_properties: {grid_position: 'RGKWZH,UHSRDX', row_background: ''}
+    event_bindings: {click: device_link_click}
   - name: real_link
     properties: {}
     type: Link
