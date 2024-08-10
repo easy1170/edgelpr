@@ -39,4 +39,27 @@ components:
     layout_properties: {row: LOAENB, width_xs: 5, col_xs: 2}
     data_bindings:
     - {property: text, code: 'self.item[''snap_url'']', writeback: false}
+  - name: linear_panel_1
+    properties: {}
+    type: LinearPanel
+    layout_properties: {row: TWQWQA, width_xs: 2, col_xs: 0}
+    components:
+    - name: label_1_copy_2_copy
+      properties: {text: Feature Image, bold: true, align: center}
+      type: Label
+      layout_properties: {}
+    - name: spacer_1
+      properties: {height: 71.66665649414062}
+      type: Spacer
+      layout_properties: {}
+    - name: outlined_button_1
+      properties: {text: '', role: outlined-button, background: 'theme:Primary', icon: 'fa:upload', foreground: 'theme:Primary Container'}
+      type: Button
+      layout_properties: {}
+  - name: feature_img
+    properties: {height: 339.88885498046875}
+    type: Image
+    layout_properties: {row: TWQWQA, width_xs: 9, col_xs: 2}
+    data_bindings:
+    - {property: source, code: 'self.item[''feature_url'']', writeback: false}
 is_package: true
