@@ -8,6 +8,7 @@ runtime_options:
   client_version: '3'
   server_version: python3-sandbox
   server_spec: {base: python310-standard}
+  server_spec_disabled: {base: python310-standard, requirements: ''}
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
@@ -17,7 +18,7 @@ startup: {type: form, module: Base}
 metadata: {title: 실시간 LPR 번호 인식 장치, description: Edge 장치의 TPU 통한 차량 번호판 인식, logo_img: 'asset:LOGO2.png'}
 db_schema:
   dev_tbl:
-    client: full
+    client: none
     server: full
     columns:
     - name: name

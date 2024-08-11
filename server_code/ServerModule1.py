@@ -13,7 +13,8 @@ from datetime import datetime
 @anvil.server.callable
 def get_dv_list():
   return app_tables.dev_tbl.search()
-@anvil.server.route("/users/list")
+  
+@anvil.server.route("/dv/list")
 def get_user_list():
   return app_tables.dev_tbl.search()
   
