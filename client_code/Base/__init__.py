@@ -12,6 +12,8 @@ from ..Home import Home
 from ..Realtime import Realtime
 from ..Device import Device
 from ..Predict import Predict
+
+
 class Base(BaseTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -34,6 +36,7 @@ class Base(BaseTemplate):
     self.content_panel.add_component(Device())
   def ai_link_click(self, **event_args):
     """This method is called when the link is clicked"""
+
     self.content_panel.clear()
     self.content_panel.add_component(Predict())
     
@@ -66,4 +69,7 @@ class Base(BaseTemplate):
       self.login_name.text =  self.user_email 
 
 
-    
+  def my_method(self, name):
+      #alert(f"Hello, {name}")
+      self.content_panel.raise_event_on_children("x-foo", foo=42)
+      return 42

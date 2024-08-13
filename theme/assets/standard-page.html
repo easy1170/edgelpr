@@ -1,5 +1,29 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
-
+<script>
+function myCallback(a, b) {
+  // Your code here
+  // Parameters are purely optional.
+  console.log(a);
+  console.log(b);
+}
+function myCallback2(a, b) {
+  // Your code here
+  // Parameters are purely optional.
+  console.log(a);
+  console.log(b);
+}
+function startInterval(){
+  //setInterval(myCallback, 1000, "Parameter 1", "Parameter 2");
+  setTimeout(() => {
+    //console.log("Delayed for 1 second.");
+    anvil.call($('.content'), 'my_method', 'world')
+  }, "1000");
+}
+function showJsAlert(message) {
+    alert(message);
+    return 42;
+}
+</script>
 <div class="structure">
   <div class="app-bar" anvil-drop-container=".anvil-container" anvil-drop-redirect=".placeholder">
     <a class="sidebar-toggle" anvil-if-slot-empty="top-left-btn" anvil-hide-if-slot-empty="left-nav" anvil-drop-slot="top-left-btn" href="javascript:void(0)"><i class="fa fa-bars"></i></a>

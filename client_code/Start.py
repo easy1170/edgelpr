@@ -7,6 +7,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+
 # This is a module.
 # You can define variables and functions here, and use them from any form. For example, in a top-level form:
 #
@@ -21,6 +22,7 @@ def say_hello():
 def main():
   say_hello()
   anvil.server.call('init_db')
+  #anvil.server.call('intervalFunc')
   open_form('Base')
   
   

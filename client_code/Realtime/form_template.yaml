@@ -21,6 +21,11 @@ components:
       type: DropDown
       layout_properties: {row: RBCRGE, width_xs: 4, col_xs: 2}
       data_bindings: []
+    - name: interval_button
+      properties: {text: Start Interval, role: outlined-button, background: 'theme:Primary', foreground: 'theme:On Primary'}
+      type: Button
+      layout_properties: {row: RBCRGE, width_xs: 3, col_xs: 9}
+      event_bindings: {click: interval_button_click}
     - name: label_2
       properties: {text: '  TIME     ', bold: true, align: center, icon: 'fa:calendar', underline: true}
       type: Label
@@ -37,8 +42,10 @@ components:
       properties: {placeholder: 입차위치 표시}
       type: TextBox
       layout_properties: {row: TNQUZQ, width_xs: 4, col_xs: 8}
-  - name: image_1
-    properties: {source: _/theme/CCTV-B2-10_20240809152617_347735-1-0-cr.jpg}
-    type: Image
-    layout_properties: {grid_position: 'EAJUCX,KCKUBQ'}
+  - name: canvas_1
+    properties: {height: 100, background: ''}
+    type: Canvas
+    layout_properties: {grid_position: 'JXERLS,WOWNPG'}
+    data_bindings: []
+    event_bindings: {reset: canvas_1_reset}
 is_package: true
