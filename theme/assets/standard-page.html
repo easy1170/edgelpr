@@ -1,12 +1,17 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
 <script>
+const socket = new WebSocket("ws://localhost:3030/_/pacontrol");
+  //åü°tåô¾t
+socket.addEventListener("open", function (event) {
+  console.log("connected pacontrol")
+  socket.send("Hello Server!");
+});
+  socket.addEventListener("message", function (event) {
+  console.log("Message from server ", event.data);
+});
+</script>
+<script>
 function myCallback(a, b) {
-  // Your code here
-  // Parameters are purely optional.
-  console.log(a);
-  console.log(b);
-}
-function myCallback2(a, b) {
   // Your code here
   // Parameters are purely optional.
   console.log(a);
