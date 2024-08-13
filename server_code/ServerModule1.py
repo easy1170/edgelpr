@@ -32,6 +32,10 @@ def update_dv(dv, dv_dict):
     raise Exception("DV does not exist")
 
 @anvil.server.callable
+def add_dv(dv):
+  app_tables.tasks.add_row(dv, complete=False)
+  
+@anvil.server.callable
 def delete_dv(dv):
   # check that the entry being deleted exists in the Data Table
   if app_tables.dev_tbl.has_row(dv):
