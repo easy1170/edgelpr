@@ -23,7 +23,7 @@ def main():
   say_hello()
   anvil.server.call('init_db')
   #anvil.server.call('intervalFunc')
-  anvil.server.call('startWebsocket')
+  #anvil.server.call('startWebsocket')
   open_form('Base')
   
   
