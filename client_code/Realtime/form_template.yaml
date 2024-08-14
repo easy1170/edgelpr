@@ -1,6 +1,7 @@
 container:
   type: ColumnPanel
   data_bindings: []
+  event_bindings: {show: form_show}
 components:
 - name: content_panel
   properties: {role: outlined-card}

@@ -9,7 +9,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.js
-
+from anvil.js.window import jpegView
 #from anvil.js.window import Foo
 
 
@@ -17,8 +17,12 @@ class Realtime(RealtimeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.dom = anvil.js.get_dom_node(self.video_container)
     #self.task = anvil.server.call('launch_slow_request_task')
     self.add_event_handler('x-foo', self.handle_foo)
+  def form_show(self, **event_args):
+    self.jpegView = jpegView.jpegView(self.dom)
+  
   def handle_foo(self, **event_args):
     name="fdsfds"
     alert(f"Hello, {name}")
@@ -48,4 +52,4 @@ class Realtime(RealtimeTemplate):
     """This method is called when the button is clicked"""
     get_open_form().call_js('startInterval')
     #self.call_js('showJsAlert', 'Hello, world!')
-  
+
