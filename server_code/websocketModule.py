@@ -6,16 +6,19 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import asyncio
+import time
+import websockets
+import datetime
+import multiprocessing as mp
 
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
-#
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
-#
+@anvil.server.callable
+def startWebsocket():
+    async def handler(websocket, path):
+        while True:
+            await websocket.send("[*] M1 from SERVER 1 "+str(datetime.datetime.now()))
+            time.sleep(0.1)
+
+    start_server = websockets.serve(handler, "localhost", 3031)
+    asyncio.get_event_loop().run_until_complete(start_server)
+    asyncio.get_event_loop().run_forever()
