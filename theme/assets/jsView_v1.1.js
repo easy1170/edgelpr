@@ -56,7 +56,8 @@ window.ExJPG = {
     },
 
     funcGetjpegimage:function() {
-      const video_url = `http://${JpegView.hostname}/jpg`
+      const video_url = `http://${window.jpegView.hostname}/jpg`
+      console.log(video_url)
       ExJPG.XMLHttpReq.open("GET", video_url, true, "", "");
       ExJPG.XMLHttpReq.responseType = "blob";	
       if (ExJPG.lastcheck) {
