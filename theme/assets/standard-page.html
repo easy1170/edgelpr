@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
 <script>
-const socket = new WebSocket("ws://localhost:3031/api/broadcast");
+const socket = new WebSocket("ws://"+window.location.hostname+":3031/api/broadcast");
   //åü°tåô¾t
 socket.addEventListener("open", function (event) {
   console.log("connected pacontrol")
