@@ -23,6 +23,7 @@ class Realtime(RealtimeTemplate):
     from anvil.js.window import jpegView
     #print(dir(anvil.js.window))
     self.jpegView = jpegView.drawPlayer(self.dom)
+    print("start jpegView")
     pass
   
   def handle_foo(self, **event_args):

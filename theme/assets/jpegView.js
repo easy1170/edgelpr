@@ -1,10 +1,8 @@
 
 class JpegView {
     constructor() {
-        this.img_naem = '';
+        this.img_name = '';
     }
-
-
 	SetFormDefaults(){
 		ExJPG.lastcheck = false;
 		ExJPG.Interval = 100; // reducing this value does not seem to reduce the interval.
