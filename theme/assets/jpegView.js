@@ -27,6 +27,7 @@ class JpegView {
     console.log("ready to draw")
   }
 }
+window.jpegView = new JpegView();
 window.ExJPG = {
     lastcheck : false,
     dx : 0,
@@ -71,4 +72,3 @@ window.ExJPG = {
         ExJPG.XMLHttpReq.send(null);
     }
 };
-window.jpegView = new JpegView();
