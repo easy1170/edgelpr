@@ -9,19 +9,20 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.js
-from anvil.js.window import jpegView
+#from anvil.js.window import jpegView
 #from anvil.js.window import Foo
-
+import anvil.js.window
 
 class Realtime(RealtimeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.dom = anvil.js.get_dom_node(self.video_container)
-    #self.task = anvil.server.call('launch_slow_request_task')
     self.add_event_handler('x-foo', self.handle_foo)
   def form_show(self, **event_args):
+    #print(anvil.js.window)
     self.jpegView = jpegView.jpegView(self.dom)
+    pass
   
   def handle_foo(self, **event_args):
     name="fdsfds"

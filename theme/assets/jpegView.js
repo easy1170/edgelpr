@@ -1,17 +1,17 @@
 
-class jpegView {
-    constructor(container) {
-        this.container = container;
+function jpegView() {
+    // constructor(container) {
+    //     this.container = container;
         
-        this.canvas = document.createElement('canvas', {id: 'ExJPG'});
-        this.container.appendChild(this.canvas);
-        this.container.onload = this.SetFormDefaults();
-        //this.context = this.canvas.getContext('2d');
-        // this.image = new Image();
-        // this.image.onload = () => {
-        //     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
-        // };	
-    }
+    //     this.canvas = document.createElement('canvas', {id: 'ExJPG'});
+    //     this.container.appendChild(this.canvas);
+    //     this.container.onload = this.SetFormDefaults();
+    //     //this.context = this.canvas.getContext('2d');
+    //     // this.image = new Image();
+    //     // this.image.onload = () => {
+    //     //     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
+    //     // };	
+    // }
 
 	SetFormDefaults()
 	{
