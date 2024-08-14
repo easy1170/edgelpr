@@ -25,7 +25,7 @@ class Realtime(RealtimeTemplate):
     print("The x-foo event was raised!")
     
     # Any code you write here will run before the form opens.
-  def canvas_1_reset(self, **event_args):
+  def canvas_jpg_reset(self, **event_args):
     """This method is called when the Canvas is shown on the screen"""
   
     c = self.canvas_1
