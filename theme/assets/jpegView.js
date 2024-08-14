@@ -1,20 +1,11 @@
 
-function jpegView() {
-    // constructor(container) {
-    //     this.container = container;
-        
-    //     this.canvas = document.createElement('canvas', {id: 'ExJPG'});
-    //     this.container.appendChild(this.canvas);
-    //     this.container.onload = this.SetFormDefaults();
-    //     //this.context = this.canvas.getContext('2d');
-    //     // this.image = new Image();
-    //     // this.image.onload = () => {
-    //     //     this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
-    //     // };	
-    // }
+class JpegView {
+    constructor() {
+        this.img_naem = '';
+    }
 
-	SetFormDefaults()
-	{
+
+	SetFormDefaults(){
 		ExJPG.lastcheck = false;
 		ExJPG.Interval = 100; // reducing this value does not seem to reduce the interval.
 		ExJPG.Img = new Image();
@@ -22,15 +13,19 @@ function jpegView() {
 		ExJPG.urlCreator = window.URL || window.webkitURL;
 		ExJPG.funcGetjpegimage();
 	}
-    drawPlayer(container)
-	{
-        container_Element = document.getElementById(container);
-        container_Element.innerHTML = `
-        <div onload="SetFormDefaults();">
-        	<div style="margin:5px">"
-        		<canvas id="ExJPG" width="960" height="540"></canvas>
-        </div>`;
-    }
+  drawPlayer(container){
+    this.container = container;
+    //const container_Element = document.getElementById(container);
+    // container_Element.innerHTML = `
+    // <div onload="SetFormDefaults();">
+    // 	<div style="margin:5px">"
+    // 		<canvas id="ExJPG" width="960" height="540"></canvas>
+    // </div>`;
+    this.canvas = document.createElement('canvas', {id: 'ExJPG', width:'960', height:'540'});
+    this.container.appendChild(this.canvas);
+    this.container.onload = this.SetFormDefaults();
+    console.log("ready to draw")
+  }
 }
 window.ExJPG = {
     lastcheck : false,
@@ -76,3 +71,4 @@ window.ExJPG = {
         ExJPG.XMLHttpReq.send(null);
     }
 };
+window.jpegView = new JpegView();

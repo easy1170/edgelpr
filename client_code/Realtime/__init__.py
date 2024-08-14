@@ -9,7 +9,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.js
-#from anvil.js.window import jpegView
+
 #from anvil.js.window import Foo
 import anvil.js.window
 
@@ -20,8 +20,9 @@ class Realtime(RealtimeTemplate):
     self.dom = anvil.js.get_dom_node(self.video_container)
     self.add_event_handler('x-foo', self.handle_foo)
   def form_show(self, **event_args):
-    #print(anvil.js.window)
-    self.jpegView = jpegView.jpegView(self.dom)
+    from anvil.js.window import jpegView
+    #print(dir(anvil.js.window))
+    self.jpegView = jpegView.drawPlayer(self.dom)
     pass
   
   def handle_foo(self, **event_args):
