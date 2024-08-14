@@ -1,7 +1,8 @@
 
 class JpegView {
     constructor() {
-        this.img_name = '';
+      this.img_name = '';
+      this.hostname='';
     }
 	SetFormDefaults(){
 		ExJPG.lastcheck = false;
@@ -11,8 +12,9 @@ class JpegView {
 		ExJPG.urlCreator = window.URL || window.webkitURL;
 		ExJPG.funcGetjpegimage();
 	}
-  drawPlayer(container){
+  drawPlayer(container, hostname){
     this.container = container;
+    this.hostname = hostname;
     //const container_Element = document.getElementById(container);
     // container_Element.innerHTML = `
     // <div onload="SetFormDefaults();">
@@ -54,19 +56,20 @@ window.ExJPG = {
     },
 
     funcGetjpegimage:function() {
-        ExJPG.XMLHttpReq.open("GET", "/jpg/", true, "", "");
-        ExJPG.XMLHttpReq.responseType = "blob";	
-        if (ExJPG.lastcheck) {
-            return 0;
-        }
+      const video_url = `http://${JpegView.hostname}/jpg`
+      ExJPG.XMLHttpReq.open("GET", video_url, true, "", "");
+      ExJPG.XMLHttpReq.responseType = "blob";	
+      if (ExJPG.lastcheck) {
+          return 0;
+      }
 
-        ExJPG.XMLHttpReq.onload = function(oEvent) {
-            ExJPG.funcDraw(ExJPG.XMLHttpReq.response);
-            setTimeout(function() {
-                requestAnimationFrame(ExJPG.funcGetjpegimage);
-            }, ExJPG.Interval);
-            return 0;
-        };
-        ExJPG.XMLHttpReq.send(null);
+      ExJPG.XMLHttpReq.onload = function(oEvent) {
+          ExJPG.funcDraw(ExJPG.XMLHttpReq.response);
+          setTimeout(function() {
+              requestAnimationFrame(ExJPG.funcGetjpegimage);
+          }, ExJPG.Interval);
+          return 0;
+      };
+      ExJPG.XMLHttpReq.send(null);
     }
 };
