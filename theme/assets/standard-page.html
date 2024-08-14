@@ -1,16 +1,20 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
-<script>
-const socket = new WebSocket("ws://"+window.location.hostname+":3031/api/broadcast");
-  //åü°tåô¾t
-socket.addEventListener("open", function (event) {
-  console.log("connected pacontrol")
-  socket.send("Hello Server!");
-});
-  socket.addEventListener("message", function (event) {
-  console.log("Message from server ", event.data);
-});
+<script language="javascript" type="text/javascript">
+   var wsUri = "ws://"+window.location.hostname+":3031/api/broadcast";
+  const websocket = new WebSocket(wsUri);
+  const onOpen =(evt)=>{console.log("connected")}
+  const onClose =(evt)=>{console.log("closed")}
+  const onMessage =(evt)=>{
+    console.log("Message from server ", evt.data);
+  }
+  const onError =(evt)=>{console.log("on error")}
+ 
+  websocket.onopen = function(evt) { onOpen(evt) ;};
+  websocket.onclose = function(evt) { onClose(evt) };
+  websocket.onmessage = function(evt) { onMessage(evt) };
+  websocket.onerror = function(evt) { onError(evt) };
 </script>
-<script>
+<script language="javascript" type="text/javascript">
 function myCallback(a, b) {
   // Your code here
   // Parameters are purely optional.
