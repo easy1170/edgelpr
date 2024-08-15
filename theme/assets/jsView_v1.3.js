@@ -15,16 +15,15 @@ class JpegView {
   drawPlayer(container, hostname){
     this.container = container;
     this.hostname = hostname;
-    //const container_Element = document.getElementById(container);
-    // container_Element.innerHTML = `
-    // <div onload="SetFormDefaults();">
-    // 	<div style="margin:5px">"
-    // 		<canvas id="ExJPG" width="960" height="540"></canvas>
-    // </div>`;
-    this.canvas = document.createElement('canvas', {id: 'ExJPG', width:'960', height:'540'});
+
+    this.canvas = document.createElement('canvas');
+	this.canvas.setAttribute("id","ExJPG")
+	this.canvas.setAttribute("width","384")
+	this.canvas.setAttribute("height","216")
     this.container.appendChild(this.canvas);
-    this.container.onload = this.SetFormDefaults();
     console.log("ready to draw")
+	this.container.onload = this.SetFormDefaults();
+    
   }
 }
 window.jpegView = new JpegView();
@@ -47,8 +46,14 @@ window.ExJPG = {
             return 0;
         }
         ExJPG.context = ExJPG.canvas.getContext("2d");
+
         ExJPG.Img.onload = function(evt) {
-            ExJPG.context.drawImage(ExJPG.Img, ExJPG.dx, ExJPG.dy, 960, 540);
+			var cw=ExJPG.canvas.width;
+			var ch=ExJPG.canvas.height;
+			var vw=ExJPG.Img.width;
+			var vh=ExJPG.Img.height;
+			//var th=cw*vh/vw;
+			ExJPG.context.drawImage(ExJPG.Img,  0, 0, vw, vh, 0, 0, cw, ch);
             ExJPG.urlCreator.revokeObjectURL(ExJPG.Img.src);
             return 0;
         };
@@ -56,9 +61,10 @@ window.ExJPG = {
     },
 
     funcGetjpegimage:function() {
-      const video_url = `http://${window.jpegView.hostname}/jpg/`
+		const hostname = window.location.hostname; //window.jpegView.hostname
+      const video_url = `http://${hostname}/cam/jpg/`
       console.log(video_url)
-      ExJPG.XMLHttpReq.open("GET", video_url, true, "user", "1");
+      ExJPG.XMLHttpReq.open("GET", video_url, true);
       ExJPG.XMLHttpReq.responseType = "blob";	
       if (ExJPG.lastcheck) {
           return 0;
@@ -68,9 +74,12 @@ window.ExJPG = {
           ExJPG.funcDraw(ExJPG.XMLHttpReq.response);
           setTimeout(function() {
               requestAnimationFrame(ExJPG.funcGetjpegimage);
+			  //console.log("request next")
           }, ExJPG.Interval);
           return 0;
       };
       ExJPG.XMLHttpReq.send(null);
+	  //console.log("make empyt");
     }
+
 };
