@@ -12,17 +12,17 @@ class JpegView {
 		ExJPG.urlCreator = window.URL || window.webkitURL;
 		ExJPG.funcGetjpegimage();
 	}
-  drawPlayer(container, hostname){
+  drawPlayer(container, jpg_url){
     this.container = container;
-    this.hostname = hostname;
+    this.jpg_url = jpg_url;
 
     this.canvas = document.createElement('canvas');
-	this.canvas.setAttribute("id","ExJPG")
-	this.canvas.setAttribute("width","384")
-	this.canvas.setAttribute("height","216")
+  	this.canvas.setAttribute("id","ExJPG")
+  	this.canvas.setAttribute("width","384")
+  	this.canvas.setAttribute("height","216")
     this.container.appendChild(this.canvas);
     console.log("ready to draw")
-	this.container.onload = this.SetFormDefaults();
+	  this.container.onload = this.SetFormDefaults();
     
   }
 }
@@ -61,10 +61,10 @@ window.ExJPG = {
     },
 
     funcGetjpegimage:function() {
-		const hostname = window.location.hostname; //window.jpegView.hostname
-      const video_url = `http://${hostname}/cam/jpg/`
-      console.log(video_url)
-      ExJPG.XMLHttpReq.open("GET", video_url, true);
+		  const hostname = window.location.hostname; //window.jpegView.hostname
+      const jpg_url = `http://${hostname}/${window.jpegView.jpg_url}`;
+      console.log(jpg_url)
+      ExJPG.XMLHttpReq.open("GET", jpg_url, true);
       ExJPG.XMLHttpReq.responseType = "blob";	
       if (ExJPG.lastcheck) {
           return 0;
