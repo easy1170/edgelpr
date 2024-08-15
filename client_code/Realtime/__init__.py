@@ -22,7 +22,7 @@ class Realtime(RealtimeTemplate):
   def form_show(self, **event_args):
     from anvil.js.window import jpegView
     #print(dir(anvil.js.window))
-    self.jpegView = jpegView.drawPlayer(self.dom, "/cam1/jpg")
+    self.jpegView = jpegView.drawPlayer(self.dom, "/cam1/jpg/")
     print("start jpegView")
     pass
   
