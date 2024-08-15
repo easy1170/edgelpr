@@ -25,12 +25,15 @@ class Realtime(RealtimeTemplate):
     self.add_event_handler('x-foo', self.handle_foo)
     
   def form_show(self, **event_args):
+    self.imageView()
+    
+  def imageView(self):
+    
     from anvil.js.window import jpegView
-    #print(dir(anvil.js.window))
     self.jpegView = jpegView.drawPlayer(self.dom, self.item['snap_url'])
     print("start jpegView")
-    pass
-  
+    
+    
   def handle_foo(self, **event_args):
     name="fdsfds"
     alert(f"Hello, {name}")
@@ -65,5 +68,5 @@ class Realtime(RealtimeTemplate):
     """This method is called when an item is selected"""
     print(self.cam_drop_down.selected_value["snap_url"])
     self.item['snap_url'] = self.cam_drop_down.selected_value["snap_url"]
-    self.jpegView = jpegView.drawPlayer(self.dom, self.item['snap_url'])
+    self.imageView()
 
