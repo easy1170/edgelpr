@@ -18,14 +18,16 @@ class Realtime(RealtimeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.items= anvil.server.call("get_dv_list")
+    
     self.cam_drop_down.items =  [(row["name"], row) for row in self.items]
+    self.item['snap_url'] = self.items[0]["snap_url"]
     self.dom = anvil.js.get_dom_node(self.video_container)
     self.add_event_handler('x-foo', self.handle_foo)
     
   def form_show(self, **event_args):
     from anvil.js.window import jpegView
     #print(dir(anvil.js.window))
-    self.jpegView = jpegView.drawPlayer(self.dom, "/cam1/jpg/")
+    self.jpegView = jpegView.drawPlayer(self.dom, self.item['snap_url'])
     print("start jpegView")
     pass
   
@@ -58,4 +60,10 @@ class Realtime(RealtimeTemplate):
     """This method is called when the button is clicked"""
     get_open_form().call_js('startInterval')
     #self.call_js('showJsAlert', 'Hello, world!')
+
+  def cam_drop_down_change(self, **event_args):
+    """This method is called when an item is selected"""
+    print(self.cam_drop_down.selected_value["snap_url"])
+    self.item['snap_url'] = self.cam_drop_down.selected_value["snap_url"]
+    self.jpegView = jpegView.drawPlayer(self.dom, self.item['snap_url'])
 

@@ -23,6 +23,7 @@ components:
       layout_properties: {row: RBCRGE, width_xs: 4, col_xs: 2}
       data_bindings:
       - {property: items, code: '', writeback: false}
+      event_bindings: {change: cam_drop_down_change}
     - name: interval_button
       properties: {text: Start Interval, role: outlined-button, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Button
