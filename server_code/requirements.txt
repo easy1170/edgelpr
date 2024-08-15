@@ -1,2 +1,0 @@
-websockets==12.0
-websockets_routes==0.2

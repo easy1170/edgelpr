@@ -17,8 +17,11 @@ class Realtime(RealtimeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.items= anvil.server.call("get_dv_list")
+    self.cam_drop_down.items =  [(row["name"], row) for row in self.items]
     self.dom = anvil.js.get_dom_node(self.video_container)
     self.add_event_handler('x-foo', self.handle_foo)
+    
   def form_show(self, **event_args):
     from anvil.js.window import jpegView
     #print(dir(anvil.js.window))

@@ -1,19 +1,23 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">
 <script src='_/theme/jsView_v1.6.js'></script>
 <script language="javascript" type="text/javascript">
-   var wsUri = "ws://"+window.location.hostname+":3031/api/broadcast";
-  const websocket = new WebSocket(wsUri);
-  const onOpen =(evt)=>{console.log("connected")}
-  const onClose =(evt)=>{console.log("closed")}
-  const onMessage =(evt)=>{
-    console.log("Message from server ", evt.data);
+  var hostname = window.location.hostname;
+  alert(hostname)
+  if (hostname.indexOf("anvil.app")<0){
+    var wsUri = `ws://${hostname}:3031/api/broadcast`;
+    const websocket = new WebSocket(wsUri);
+    const onOpen =(evt)=>{console.log("connected")}
+    const onClose =(evt)=>{console.log("closed")}
+    const onMessage =(evt)=>{
+      console.log("Message from server ", evt.data);
+    }
+    const onError =(evt)=>{console.log("on error")}
+  
+    websocket.onopen = function(evt) { onOpen(evt) ;};
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
   }
-  const onError =(evt)=>{console.log("on error")}
- 
-  websocket.onopen = function(evt) { onOpen(evt) ;};
-  websocket.onclose = function(evt) { onClose(evt) };
-  websocket.onmessage = function(evt) { onMessage(evt) };
-  websocket.onerror = function(evt) { onError(evt) };
 </script>
 <script language="javascript" type="text/javascript">
 function myCallback(a, b) {

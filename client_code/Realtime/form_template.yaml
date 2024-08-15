@@ -17,11 +17,12 @@ components:
       properties: {text: CAMERA, icon: 'fa:video-camera', align: right, bold: true, underline: true}
       type: Label
       layout_properties: {row: RBCRGE, width_xs: 2, col_xs: 0}
-    - name: drop_down_1
+    - name: cam_drop_down
       properties: {align: full}
       type: DropDown
       layout_properties: {row: RBCRGE, width_xs: 4, col_xs: 2}
-      data_bindings: []
+      data_bindings:
+      - {property: items, code: '', writeback: false}
     - name: interval_button
       properties: {text: Start Interval, role: outlined-button, background: 'theme:Primary', foreground: 'theme:On Primary'}
       type: Button
