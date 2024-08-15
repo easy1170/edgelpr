@@ -2,7 +2,6 @@
 <script src='_/theme/jsView_v1.6.js'></script>
 <script language="javascript" type="text/javascript">
   var hostname = window.location.hostname;
-  alert(hostname)
   if (hostname.indexOf("anvil.app")<0){
     var wsUri = `ws://${hostname}:3031/api/broadcast`;
     const websocket = new WebSocket(wsUri);
